@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Demo MovieLibrary";
+}
+
+<div id="library-demo">
+    <div class="title">
+        Movie Library: <span class="title" data-bind='text: title'></span> 
+    
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function() {
+            ko.applyBindings(new DemoKoCoffee.MovieLibraryViewModel('Awesome Movies'));
+        });
+    </script>
+
+}
+
+
+    

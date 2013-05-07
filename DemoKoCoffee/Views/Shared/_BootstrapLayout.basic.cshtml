@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>MavenThought Inc. Demo Ko & Coffee</title>
+        <link href="@Styles.Url("~/content/css")" rel="stylesheet"/>
+        <link href="/content/styles.css" rel="stylesheet"/>
+        @RenderSection("head", required: false)
+        @Html.Partial("_html5shiv")
+    </head>
+     
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a href="#" class="brand">Demo Knockout & Coffeescript</a>      
+                </div>    
+            </div>
+        </div>
+
+        <div class='container-fluid'>
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class='well'>
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Demos</li>
+                            <li><a href='/demo'>Demo binding</a></li>
+                            <li><a href='/demo/twitter'>Twitter Demo using CS</a></li>
+                        </ul>
+                    </div>     
+                </div>   
+                <div class="span9">
+                    @RenderBody()
+                </div>
+            </div> 
+        </div>
+
+        @Scripts.Render("~/js")
+        <script type="text/javascript" src="/Scripts/knockout-2.2.0.js"></script>
+        <script type="text/javascript" src="/Scripts/ViewModels/DemoKoCoffee.js"></script>
+        <script type="text/javascript" src="/Scripts/ViewModels/MovieLibraryViewModel.js"></script>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
+

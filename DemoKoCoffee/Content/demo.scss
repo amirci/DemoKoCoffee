@@ -1,0 +1,10 @@
+#library-demo {
+  
+  .title {
+    @extend h1;
+    .title {
+      margin-left: 10px;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+#twitter-demo {
+  padding: 1em;
+  background-color: #EEEEDD;
+  border: 1px solid #CCC;
+  max-width: 655px; }
+  #twitter-demo b {
+    font-weight: bold; }
+  #twitter-demo input {
+    font-family: Arial; }
+  #twitter-demo p {
+    margin-top: 0.9em;
+    margin-bottom: 0.9em; }
+  #twitter-demo select[multiple] {
+    width: 100%;
+    height: 8em; }
+  #twitter-demo h2 {
+    margin-top: 0.4em;
+    font-weight: bold;
+    font-size: 1.2em; }
+  #twitter-demo select {
+    height: 1.7em; }
+  #twitter-demo button {
+    height: 2em; }
+
+li {
+  list-style-type: disc;
+  margin-left: 20px; }
+
