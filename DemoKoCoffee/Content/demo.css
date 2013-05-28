@@ -1,6 +1,8 @@
 #library-demo .title .title {
   margin-left: 10px;
   font-weight: 600; }
+#library-demo .filter {
+  margin: 20px 0; }
 #library-demo .movies {
   display: table;
   border-collapse: collapse;
