@@ -3,7 +3,8 @@
   font-weight: 600; }
 #library-demo .movies {
   display: table;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  width: 100%; }
   #library-demo .movies .movie {
     display: table-row; }
     #library-demo .movies .movie:nth-child(even) {

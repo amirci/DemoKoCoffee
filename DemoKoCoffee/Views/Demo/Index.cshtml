@@ -4,26 +4,22 @@
 
 <div id="library-demo">
     <div class="title">
-        Movie Library: <span class="title" data-bind='text: title'></span> 
+        Movie Library: <span class="title">Mell Brooks Movies</span> 
     
     </div>
-    <div class="movies" data-bind='foreach: movies'>
-        <div class='movie'>
-            <div class="name" data-bind='text: title'/>
-            <div class="release-date" data-bind='text: releaseDate' />
+    <div class="movies">
+        <div class='movie row-fluid'>
+            <div class="name span6">Blazing Saddles</div>
+            <div class="release-date span6">1972</div>
+        </div>
+        <div class='movie row-fluid'>
+            <div class="name span6">Young Frankenstain</div>
+            <div class="release-date span6">1972</div>
+        </div>
+        <div class='movie row-fluid'>
+            <div class="name span6">Spaceballs</div>
+            <div class="release-date span6">1972</div>
         </div>
     </div>
 
 </div>
-
-@section Scripts {
-    <script type="text/javascript">
-        $(function() {
-            ko.applyBindings(new DemoKoCoffee.MovieLibraryViewModel('Awesome Movies'));
-        });
-    </script>
-
-}
-
-
-    
