@@ -5954,4 +5954,6 @@ body {
   font-size: 14px;
   line-height: 20px;
   margin: 0; }
+  body li {
+    list-style-type: none; }
 
