@@ -132,9 +132,16 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
+    </Content>
     <Content Include="Content\demo.css">
       <DependentUpon>demo.scss</DependentUpon>
     </Content>
+    <Content Include="Content\font-awesome\font-awesome.css">
+      <DependentUpon>font-awesome.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\styles.css">
@@ -259,6 +266,10 @@
     <Content Include="Content\bootstrap\_variables.scss" />
     <Content Include="Content\bootstrap\_wells.scss" />
     <Content Include="Content\font-awesome\font-awesome.scss" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
