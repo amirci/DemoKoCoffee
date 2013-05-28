@@ -17,11 +17,12 @@
 	}
   }
 
+  .movie-info {
+	margin-top: 20px;
+  }
   .movies {
     display: table;
     border-collapse: collapse;
-	width: 100%;
-    
     .movie {
       display: table-row;
       

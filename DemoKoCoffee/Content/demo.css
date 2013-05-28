@@ -3,10 +3,11 @@
   font-weight: 600; }
 #library-demo .filter {
   margin: 20px 0; }
+#library-demo .movie-info {
+  margin-top: 20px; }
 #library-demo .movies {
   display: table;
-  border-collapse: collapse;
-  width: 100%; }
+  border-collapse: collapse; }
   #library-demo .movies .movie {
     display: table-row; }
     #library-demo .movies .movie:nth-child(even) {
