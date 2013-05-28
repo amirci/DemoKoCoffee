@@ -7,6 +7,13 @@
         Movie Library: <span class="title" data-bind='text: title'></span> 
     
     </div>
+    <div class="movies" data-bind='foreach: movies'>
+        <div class='movie'>
+            <div class="name" data-bind='text: title'/>
+            <div class="release-date" data-bind='text: releaseDate' />
+        </div>
+    </div>
+
 </div>
 
 @section Scripts {
