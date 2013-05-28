@@ -20,13 +20,28 @@
   .movie-info {
 	margin-top: 20px;
   }
+
+  $green: #98bf21;
+
+  #tab-directors {
+	border: 1px solid #ccc;
+	@include border-top-radius(6px);
+	@include gradient-horizontal($green, lighten($green, 40%));
+	padding: 10px;
+	min-height: 300px;
+	a {
+	font-size: 2em;
+	color: $white;
+	}
+  }
+
   .movies {
     display: table;
     border-collapse: collapse;
     .movie {
       display: table-row;
       
-      &:nth-child(even) {background: lighten(#98bf21, 40%)}
+      &:nth-child(even) {background: lighten($green, 40%)}
       
       .name, .release-date {
         display: table-cell;
