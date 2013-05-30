@@ -27,6 +27,12 @@
         </div>
     </div>
     
+    <div class="your-movies">
+        So far you have 
+        <div class="count" data-bind='text: count'></div>
+        movies
+    </div>
+
     <div class="movies" data-bind="foreach: movies">
         <div class="movie">
             <div class="name" data-bind="text: title"></div>

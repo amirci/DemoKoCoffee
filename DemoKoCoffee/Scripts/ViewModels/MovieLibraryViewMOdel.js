@@ -6,10 +6,16 @@
     function MovieLibraryViewModel(title) {
       this.cancelEditing = __bind(this.cancelEditing, this);
       this.saveEditing = __bind(this.saveEditing, this);
-      this.editTitle = __bind(this.editTitle, this);      this.title = ko.observable(title);
+      this.editTitle = __bind(this.editTitle, this);
+      var _this = this;
+
+      this.title = ko.observable(title);
       this.movies = [new Movie('Blazing Saddles', new Date(1972, 1, 3)), new Movie('Young Frankenstain', new Date(1972, 1, 5)), new Movie('Spaceballs', new Date(1980, 1, 3))];
       this.editingTitle = ko.observable(false);
       this.newTitle = ko.observable();
+      this.count = ko.computed(function() {
+        return _this.movies.length;
+      });
     }
 
     MovieLibraryViewModel.prototype.editTitle = function() {

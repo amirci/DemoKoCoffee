@@ -18,6 +18,14 @@
     
   }
   
+  .your-movies {
+    @extend h2;
+    .count {
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+  
   .movies {
     display: table;
     border-collapse: collapse;

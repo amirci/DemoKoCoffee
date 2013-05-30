@@ -6,6 +6,9 @@
   #library-demo .title .viewing i, #library-demo .title .editing i {
     margin-left: 15px;
     cursor: pointer; }
+#library-demo .your-movies .count {
+  display: inline-block;
+  margin: 0 10px; }
 #library-demo .movies {
   display: table;
   border-collapse: collapse; }

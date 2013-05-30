@@ -9,6 +9,7 @@ class DemoKoCoffee.MovieLibraryViewModel
     ]
     @editingTitle = ko.observable(false)
     @newTitle = ko.observable()
+    @count = ko.computed => @movies.length
     
   editTitle: => 
     @newTitle @title()
