@@ -1,4 +1,3 @@
-@import url(font-awesome/font-awesome.css);
 /*
  * Bootstrap v2.3.1
  *
@@ -527,24 +526,24 @@ a.text-success:focus {
 .text-center {
   text-align: center; }
 
-h1, #library-demo .title, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
   color: inherit;
   text-rendering: optimizelegibility; }
-  h1 small, #library-demo .title small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     font-weight: normal;
     line-height: 1;
     color: #999999; }
 
-h1, #library-demo .title,
+h1,
 h2,
 h3 {
   line-height: 40px; }
 
-h1, #library-demo .title {
+h1 {
   font-size: 38.5px; }
 
 h2 {
@@ -562,7 +561,7 @@ h5 {
 h6 {
   font-size: 11.9px; }
 
-h1 small, #library-demo .title small {
+h1 small {
   font-size: 24.5px; }
 
 h2 small {
@@ -1326,13 +1325,9 @@ select:focus:invalid {
     border: 1px solid #ccc; }
   .input-append .add-on,
   .input-append .btn,
-  .input-append #twitter-demo button,
-  #twitter-demo .input-append button,
   .input-append .btn-group > .dropdown-toggle,
   .input-prepend .add-on,
   .input-prepend .btn,
-  .input-prepend #twitter-demo button,
-  #twitter-demo .input-prepend button,
   .input-prepend .btn-group > .dropdown-toggle {
     vertical-align: top;
     -webkit-border-radius: 0;
@@ -1344,14 +1339,10 @@ select:focus:invalid {
     border-color: #46a546; }
 
 .input-prepend .add-on,
-.input-prepend .btn,
-.input-prepend #twitter-demo button,
-#twitter-demo .input-prepend button {
+.input-prepend .btn {
   margin-right: -1px; }
 .input-prepend .add-on:first-child,
-.input-prepend .btn:first-child,
-.input-prepend #twitter-demo button:first-child,
-#twitter-demo .input-prepend button:first-child {
+.input-prepend .btn:first-child {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px; }
@@ -1362,26 +1353,18 @@ select:focus:invalid {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px; }
-  .input-append input + .btn-group .btn:last-child, .input-append input + .btn-group #twitter-demo button:last-child, #twitter-demo .input-append input + .btn-group button:last-child,
+  .input-append input + .btn-group .btn:last-child,
   .input-append select + .btn-group .btn:last-child,
-  .input-append select + .btn-group #twitter-demo button:last-child,
-  #twitter-demo .input-append select + .btn-group button:last-child,
-  .input-append .uneditable-input + .btn-group .btn:last-child,
-  .input-append .uneditable-input + .btn-group #twitter-demo button:last-child,
-  #twitter-demo .input-append .uneditable-input + .btn-group button:last-child {
+  .input-append .uneditable-input + .btn-group .btn:last-child {
     -webkit-border-radius: 0 4px 4px 0;
     -moz-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0; }
 .input-append .add-on,
 .input-append .btn,
-.input-append #twitter-demo button,
-#twitter-demo .input-append button,
 .input-append .btn-group {
   margin-left: -1px; }
 .input-append .add-on:last-child,
 .input-append .btn:last-child,
-.input-append #twitter-demo button:last-child,
-#twitter-demo .input-append button:last-child,
 .input-append .btn-group:last-child > .dropdown-toggle {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -1393,28 +1376,20 @@ select:focus:invalid {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0; }
-  .input-prepend.input-append input + .btn-group .btn, .input-prepend.input-append input + .btn-group #twitter-demo button, #twitter-demo .input-prepend.input-append input + .btn-group button,
+  .input-prepend.input-append input + .btn-group .btn,
   .input-prepend.input-append select + .btn-group .btn,
-  .input-prepend.input-append select + .btn-group #twitter-demo button,
-  #twitter-demo .input-prepend.input-append select + .btn-group button,
-  .input-prepend.input-append .uneditable-input + .btn-group .btn,
-  .input-prepend.input-append .uneditable-input + .btn-group #twitter-demo button,
-  #twitter-demo .input-prepend.input-append .uneditable-input + .btn-group button {
+  .input-prepend.input-append .uneditable-input + .btn-group .btn {
     -webkit-border-radius: 0 4px 4px 0;
     -moz-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0; }
 .input-prepend.input-append .add-on:first-child,
-.input-prepend.input-append .btn:first-child,
-.input-prepend.input-append #twitter-demo button:first-child,
-#twitter-demo .input-prepend.input-append button:first-child {
+.input-prepend.input-append .btn:first-child {
   margin-right: -1px;
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px; }
 .input-prepend.input-append .add-on:last-child,
-.input-prepend.input-append .btn:last-child,
-.input-prepend.input-append #twitter-demo button:last-child,
-#twitter-demo .input-prepend.input-append button:last-child {
+.input-prepend.input-append .btn:last-child {
   margin-left: -1px;
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -1445,7 +1420,7 @@ input.search-query {
   -moz-border-radius: 14px 0 0 14px;
   border-radius: 14px 0 0 14px; }
 
-.form-search .input-append .btn, .form-search .input-append #twitter-demo button, #twitter-demo .form-search .input-append button {
+.form-search .input-append .btn {
   -webkit-border-radius: 0 14px 14px 0;
   -moz-border-radius: 0 14px 14px 0;
   border-radius: 0 14px 14px 0; }
@@ -1455,7 +1430,7 @@ input.search-query {
   -moz-border-radius: 0 14px 14px 0;
   border-radius: 0 14px 14px 0; }
 
-.form-search .input-prepend .btn, .form-search .input-prepend #twitter-demo button, #twitter-demo .form-search .input-prepend button {
+.form-search .input-prepend .btn {
   -webkit-border-radius: 14px 0 0 14px;
   -moz-border-radius: 14px 0 0 14px;
   border-radius: 14px 0 0 14px; }
@@ -2027,7 +2002,7 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
-.btn, #twitter-demo button {
+.btn {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
@@ -2064,15 +2039,15 @@ button.close {
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); }
-  .btn:hover, #twitter-demo button:hover, .btn:focus, #twitter-demo button:focus, .btn:active, #twitter-demo button:active, .btn.active, #twitter-demo button.active, .btn.disabled, #twitter-demo button.disabled, .btn[disabled], #twitter-demo button[disabled] {
+  .btn:hover, .btn:focus, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
     color: #333333;
     background-color: #e6e6e6;
     *background-color: #d9d9d9; }
-  .btn:active, #twitter-demo button:active, .btn.active, #twitter-demo button.active {
+  .btn:active, .btn.active {
     background-color: #cccccc \9; }
-  .btn:first-child, #twitter-demo button:first-child {
+  .btn:first-child {
     *margin-left: 0; }
-  .btn:hover, #twitter-demo button:hover, .btn:focus, #twitter-demo button:focus {
+  .btn:hover, .btn:focus {
     color: #333333;
     text-decoration: none;
     background-position: 0 -15px;
@@ -2080,17 +2055,17 @@ button.close {
     -moz-transition: background-position 0.1s linear;
     -o-transition: background-position 0.1s linear;
     transition: background-position 0.1s linear; }
-  .btn:focus, #twitter-demo button:focus {
+  .btn:focus {
     outline: thin dotted #333;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn.active, #twitter-demo button.active, .btn:active, #twitter-demo button:active {
+  .btn.active, .btn:active {
     background-image: none;
     outline: 0;
     -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
-  .btn.disabled, #twitter-demo button.disabled, .btn[disabled], #twitter-demo button[disabled] {
+  .btn.disabled, .btn[disabled] {
     cursor: default;
     background-image: none;
     opacity: 0.65;
@@ -2295,23 +2270,23 @@ input[type="button"].btn-block {
   .btn-inverse:active, .btn-inverse.active {
     background-color: #090909 \9; }
 
-button.btn, #twitter-demo button,
+button.btn,
 input[type="submit"].btn {
   *padding-top: 3px;
   *padding-bottom: 3px; }
-  button.btn::-moz-focus-inner, #twitter-demo button::-moz-focus-inner,
+  button.btn::-moz-focus-inner,
   input[type="submit"].btn::-moz-focus-inner {
     padding: 0;
     border: 0; }
-  button.btn.btn-large, #twitter-demo button.btn-large,
+  button.btn.btn-large,
   input[type="submit"].btn.btn-large {
     *padding-top: 7px;
     *padding-bottom: 7px; }
-  button.btn.btn-small, #twitter-demo button.btn-small,
+  button.btn.btn-small,
   input[type="submit"].btn.btn-small {
     *padding-top: 3px;
     *padding-bottom: 3px; }
-  button.btn.btn-mini, #twitter-demo button.btn-mini,
+  button.btn.btn-mini,
   input[type="submit"].btn.btn-mini {
     *padding-top: 1px;
     *padding-bottom: 1px; }
@@ -2364,23 +2339,21 @@ input[type="submit"].btn {
   font-size: 0;
   margin-top: 10px;
   margin-bottom: 10px; }
-  .btn-toolbar > .btn + .btn, #twitter-demo .btn-toolbar > button + .btn, #twitter-demo .btn-toolbar > .btn + button, #twitter-demo .btn-toolbar > button + button,
+  .btn-toolbar > .btn + .btn,
   .btn-toolbar > .btn-group + .btn,
-  #twitter-demo .btn-toolbar > .btn-group + button,
-  .btn-toolbar > .btn + .btn-group,
-  #twitter-demo .btn-toolbar > button + .btn-group {
+  .btn-toolbar > .btn + .btn-group {
     margin-left: 5px; }
 
-.btn-group > .btn, #twitter-demo .btn-group > button {
+.btn-group > .btn {
   position: relative;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0; }
 
-.btn-group > .btn + .btn, #twitter-demo .btn-group > button + .btn, #twitter-demo .btn-group > .btn + button, #twitter-demo .btn-group > button + button {
+.btn-group > .btn + .btn {
   margin-left: -1px; }
 
-.btn-group > .btn, #twitter-demo .btn-group > button,
+.btn-group > .btn,
 .btn-group > .dropdown-menu,
 .btn-group > .popover {
   font-size: 14px; }
@@ -2394,7 +2367,7 @@ input[type="submit"].btn {
 .btn-group > .btn-large {
   font-size: 17.5px; }
 
-.btn-group > .btn:first-child, #twitter-demo .btn-group > button:first-child {
+.btn-group > .btn:first-child {
   margin-left: 0;
   -webkit-border-top-left-radius: 4px;
   -moz-border-radius-topleft: 4px;
@@ -2403,7 +2376,7 @@ input[type="submit"].btn {
   -moz-border-radius-bottomleft: 4px;
   border-bottom-left-radius: 4px; }
 
-.btn-group > .btn:last-child, #twitter-demo .btn-group > button:last-child,
+.btn-group > .btn:last-child,
 .btn-group > .dropdown-toggle {
   -webkit-border-top-right-radius: 4px;
   -moz-border-radius-topright: 4px;
@@ -2412,7 +2385,7 @@ input[type="submit"].btn {
   -moz-border-radius-bottomright: 4px;
   border-bottom-right-radius: 4px; }
 
-.btn-group > .btn.large:first-child, #twitter-demo .btn-group > button.large:first-child {
+.btn-group > .btn.large:first-child {
   margin-left: 0;
   -webkit-border-top-left-radius: 6px;
   -moz-border-radius-topleft: 6px;
@@ -2421,7 +2394,7 @@ input[type="submit"].btn {
   -moz-border-radius-bottomleft: 6px;
   border-bottom-left-radius: 6px; }
 
-.btn-group > .btn.large:last-child, #twitter-demo .btn-group > button.large:last-child,
+.btn-group > .btn.large:last-child,
 .btn-group > .large.dropdown-toggle {
   -webkit-border-top-right-radius: 6px;
   -moz-border-radius-topright: 6px;
@@ -2430,20 +2403,17 @@ input[type="submit"].btn {
   -moz-border-radius-bottomright: 6px;
   border-bottom-right-radius: 6px; }
 
-.btn-group > .btn:hover, #twitter-demo .btn-group > button:hover,
+.btn-group > .btn:hover,
 .btn-group > .btn:focus,
-#twitter-demo .btn-group > button:focus,
 .btn-group > .btn:active,
-#twitter-demo .btn-group > button:active,
-.btn-group > .btn.active,
-#twitter-demo .btn-group > button.active {
+.btn-group > .btn.active {
   z-index: 2; }
 
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, #twitter-demo .btn-group > button + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px;
   -webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.125), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -2473,7 +2443,7 @@ input[type="submit"].btn {
   -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
-.btn-group.open .btn.dropdown-toggle, .btn-group.open #twitter-demo button.dropdown-toggle, #twitter-demo .btn-group.open button.dropdown-toggle {
+.btn-group.open .btn.dropdown-toggle {
   background-color: #e6e6e6; }
 .btn-group.open .btn-primary.dropdown-toggle {
   background-color: #0044cc; }
@@ -2488,7 +2458,7 @@ input[type="submit"].btn {
 .btn-group.open .btn-inverse.dropdown-toggle {
   background-color: #222222; }
 
-.btn .caret, #twitter-demo button .caret {
+.btn .caret {
   margin-top: 8px;
   margin-left: 0; }
 
@@ -2522,7 +2492,7 @@ input[type="submit"].btn {
   /* IE7 inline-block hack */
   *zoom: 1; }
 
-.btn-group-vertical > .btn, #twitter-demo .btn-group-vertical > button {
+.btn-group-vertical > .btn {
   display: block;
   float: none;
   max-width: 100%;
@@ -2530,16 +2500,16 @@ input[type="submit"].btn {
   -moz-border-radius: 0;
   border-radius: 0; }
 
-.btn-group-vertical > .btn + .btn, #twitter-demo .btn-group-vertical > button + .btn, #twitter-demo .btn-group-vertical > .btn + button, #twitter-demo .btn-group-vertical > button + button {
+.btn-group-vertical > .btn + .btn {
   margin-left: 0;
   margin-top: -1px; }
 
-.btn-group-vertical > .btn:first-child, #twitter-demo .btn-group-vertical > button:first-child {
+.btn-group-vertical > .btn:first-child {
   -webkit-border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0; }
 
-.btn-group-vertical > .btn:last-child, #twitter-demo .btn-group-vertical > button:last-child {
+.btn-group-vertical > .btn:last-child {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px; }
@@ -3018,17 +2988,13 @@ input[type="submit"].btn {
   border-left: 1px solid #f2f2f2;
   border-right: 1px solid white; }
 
-.navbar .btn, .navbar #twitter-demo button, #twitter-demo .navbar button,
+.navbar .btn,
 .navbar .btn-group {
   margin-top: 5px; }
 
-.navbar .btn-group .btn, .navbar .btn-group #twitter-demo button, #twitter-demo .navbar .btn-group button,
+.navbar .btn-group .btn,
 .navbar .input-prepend .btn,
-.navbar .input-prepend #twitter-demo button,
-#twitter-demo .navbar .input-prepend button,
 .navbar .input-append .btn,
-.navbar .input-append #twitter-demo button,
-#twitter-demo .navbar .input-append button,
 .navbar .input-prepend .btn-group,
 .navbar .input-append .btn-group {
   margin-top: 0; }
@@ -3049,9 +3015,7 @@ input[type="submit"].btn {
     margin-top: 5px; }
   .navbar-form input,
   .navbar-form select,
-  .navbar-form .btn,
-  .navbar-form #twitter-demo button,
-  #twitter-demo .navbar-form button {
+  .navbar-form .btn {
     display: inline-block;
     margin-bottom: 0; }
   .navbar-form input[type="image"],
@@ -3676,10 +3640,10 @@ input[type="submit"].btn {
     line-height: 0; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer #twitter-demo button + .btn, #twitter-demo .modal-footer button + .btn, .modal-footer #twitter-demo .btn + button, #twitter-demo .modal-footer .btn + button, .modal-footer #twitter-demo button + button, #twitter-demo .modal-footer button + button {
+  .modal-footer .btn + .btn {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group #twitter-demo button + .btn, #twitter-demo .modal-footer .btn-group button + .btn, .modal-footer .btn-group #twitter-demo .btn + button, #twitter-demo .modal-footer .btn-group .btn + button, .modal-footer .btn-group #twitter-demo button + button, #twitter-demo .modal-footer .btn-group button + button {
+  .modal-footer .btn-group .btn + .btn {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -4040,9 +4004,8 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 .badge-inverse[href] {
   background-color: #1a1a1a; }
 
-.btn .label, #twitter-demo button .label,
-.btn .badge,
-#twitter-demo button .badge {
+.btn .label,
+.btn .badge {
   position: relative;
   top: -1px; }
 
@@ -4374,7 +4337,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px; }
-  .hero-unit h1, .hero-unit #library-demo .title, #library-demo .hero-unit .title {
+  .hero-unit h1 {
     margin-bottom: 0;
     font-size: 60px;
     line-height: 1;
@@ -4424,61 +4387,4 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-
-#twitter-demo {
-  padding: 1em;
-  background-color: #EEEEDD;
-  border: 1px solid #CCC;
-  max-width: 655px; }
-  #twitter-demo b {
-    font-weight: bold; }
-  #twitter-demo input {
-    font-family: Arial; }
-  #twitter-demo p {
-    margin-top: 0.9em;
-    margin-bottom: 0.9em; }
-  #twitter-demo select[multiple] {
-    width: 100%;
-    height: 8em; }
-  #twitter-demo h2 {
-    margin-top: 0.4em;
-    font-weight: bold;
-    font-size: 1.2em; }
-  #twitter-demo select {
-    height: 1.7em; }
-  #twitter-demo button {
-    height: 2em; }
-
-li {
-  list-style-type: disc;
-  margin-left: 20px; }
-
-#library-demo .title .title {
-  margin-left: 10px;
-  font-weight: 600; }
-#library-demo .movies {
-  display: table;
-  border-collapse: collapse; }
-  #library-demo .movies .movie {
-    display: table-row; }
-    #library-demo .movies .movie:nth-child(even) {
-      background: #e5f3b9; }
-    #library-demo .movies .movie .name, #library-demo .movies .movie .release-date {
-      display: table-cell;
-      font-size: 1.2em;
-      border: 1px solid #98bf21;
-      padding: 5px 7px;
-      min-width: 200px; }
-    #library-demo .movies .movie .release-date {
-      text-align: right; }
-
-body {
-  padding-bottom: 40px;
-  padding-top: 60px;
-  background-color: #FFFFFF;
-  color: #333333;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 0; }
 

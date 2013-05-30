@@ -132,9 +132,14 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
+    </Content>
     <Content Include="Content\demo.css">
       <DependentUpon>demo.scss</DependentUpon>
     </Content>
+    <Content Include="Content\font-awesome\font-awesome.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\styles.css">
@@ -219,6 +224,52 @@
     <Content Include="Content\styles.scss" />
     <Content Include="Content\twitter_demo.scss" />
     <Content Include="Content\demo.scss" />
+    <Content Include="Content\bootstrap\bootstrap.scss" />
+    <Content Include="Content\bootstrap\responsive.scss" />
+    <Content Include="Content\bootstrap\_accordion.scss" />
+    <Content Include="Content\bootstrap\_alerts.scss" />
+    <Content Include="Content\bootstrap\_breadcrumbs.scss" />
+    <Content Include="Content\bootstrap\_button-groups.scss" />
+    <Content Include="Content\bootstrap\_buttons.scss" />
+    <Content Include="Content\bootstrap\_carousel.scss" />
+    <Content Include="Content\bootstrap\_close.scss" />
+    <Content Include="Content\bootstrap\_code.scss" />
+    <Content Include="Content\bootstrap\_component-animations.scss" />
+    <Content Include="Content\bootstrap\_dropdowns.scss" />
+    <Content Include="Content\bootstrap\_forms.scss" />
+    <Content Include="Content\bootstrap\_grid.scss" />
+    <Content Include="Content\bootstrap\_hero-unit.scss" />
+    <Content Include="Content\bootstrap\_labels-badges.scss" />
+    <Content Include="Content\bootstrap\_layouts.scss" />
+    <Content Include="Content\bootstrap\_media.scss" />
+    <Content Include="Content\bootstrap\_mixins.scss" />
+    <Content Include="Content\bootstrap\_modals.scss" />
+    <Content Include="Content\bootstrap\_navbar.scss" />
+    <Content Include="Content\bootstrap\_navs.scss" />
+    <Content Include="Content\bootstrap\_pager.scss" />
+    <Content Include="Content\bootstrap\_pagination.scss" />
+    <Content Include="Content\bootstrap\_popovers.scss" />
+    <Content Include="Content\bootstrap\_progress-bars.scss" />
+    <Content Include="Content\bootstrap\_reset.scss" />
+    <Content Include="Content\bootstrap\_responsive-1200px-min.scss" />
+    <Content Include="Content\bootstrap\_responsive-767px-max.scss" />
+    <Content Include="Content\bootstrap\_responsive-768px-979px.scss" />
+    <Content Include="Content\bootstrap\_responsive-navbar.scss" />
+    <Content Include="Content\bootstrap\_responsive-utilities.scss" />
+    <Content Include="Content\bootstrap\_scaffolding.scss" />
+    <Content Include="Content\bootstrap\_sprites.scss" />
+    <Content Include="Content\bootstrap\_tables.scss" />
+    <Content Include="Content\bootstrap\_thumbnails.scss" />
+    <Content Include="Content\bootstrap\_tooltip.scss" />
+    <Content Include="Content\bootstrap\_type.scss" />
+    <Content Include="Content\bootstrap\_utilities.scss" />
+    <Content Include="Content\bootstrap\_variables.scss" />
+    <Content Include="Content\bootstrap\_wells.scss" />
+    <Content Include="Content\font-awesome\font-awesome.scss" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
