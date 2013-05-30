@@ -4456,6 +4456,11 @@ li {
 #library-demo .title .title {
   margin-left: 10px;
   font-weight: 600; }
+#library-demo .title .viewing, #library-demo .title .editing {
+  display: inline-block; }
+  #library-demo .title .viewing i, #library-demo .title .editing i {
+    margin-left: 15px;
+    cursor: pointer; }
 #library-demo .movies {
   display: table;
   border-collapse: collapse; }

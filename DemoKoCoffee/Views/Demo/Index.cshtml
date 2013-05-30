@@ -16,9 +16,15 @@
 <div id="library-demo">
     <div class="title">
         Movie Library: 
-        <span class="title" data-bind='text: title'></span> 
-        <i class="icon-edit" data-bind='click: editTitle'></i>
-        <input type='text' data-bind='value: title, visible: editingTitle' />
+        <div class="viewing" data-bind="visible: !editingTitle()">
+            <span class="title" data-bind='text: title'></span> 
+            <i class="icon-edit" data-bind='click: editTitle'></i>
+        </div>
+        <div class="editing" data-bind="visible: editingTitle">
+            <input type='text' data-bind='value: newTitle' />
+            <i class="icon-ok-sign" data-bind='click: saveEditing' ></i>
+            <i class="icon-ban-circle" data-bind='click: cancelEditing' ></i>
+        </div>
     </div>
     
     <div class="movies" data-bind="foreach: movies">
