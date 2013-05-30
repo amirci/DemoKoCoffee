@@ -7,4 +7,27 @@
       font-weight: 600;
     }
   }
+  
+  .movies {
+    display: table;
+    border-collapse: collapse;
+    
+    .movie {
+      display: table-row;
+      
+      &:nth-child(even) {background: lighten(#98bf21, 40%)}
+      
+      .name, .release-date {
+        display: table-cell;
+        font-size: 1.2em;
+        border: 1px solid #98bf21;
+        padding: 5px 7px;
+        min-width: 200px;
+      }
+      
+      .release-date {
+        text-align: right;
+      }
+    }
+  }
 }

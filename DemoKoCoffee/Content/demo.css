@@ -1,4 +1,19 @@
 #library-demo .title .title {
   margin-left: 10px;
   font-weight: 600; }
+#library-demo .movies {
+  display: table;
+  border-collapse: collapse; }
+  #library-demo .movies .movie {
+    display: table-row; }
+    #library-demo .movies .movie:nth-child(even) {
+      background: #e5f3b9; }
+    #library-demo .movies .movie .name, #library-demo .movies .movie .release-date {
+      display: table-cell;
+      font-size: 1.2em;
+      border: 1px solid #98bf21;
+      padding: 5px 7px;
+      min-width: 200px; }
+    #library-demo .movies .movie .release-date {
+      text-align: right; }
 

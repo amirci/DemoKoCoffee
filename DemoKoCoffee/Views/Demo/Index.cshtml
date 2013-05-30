@@ -2,21 +2,30 @@
     ViewBag.Title = "Demo MovieLibrary";
 }
 
-<div id="library-demo">
-    <div class="title">
-        Movie Library: <span class="title" data-bind='text: title'></span> 
-    
-    </div>
-</div>
-
 @section Scripts {
+    <script type="text/javascript" src="/Scripts/ViewModels/MovieLibraryViewModel.js"></script>
+
     <script type="text/javascript">
-        $(function() {
-            ko.applyBindings(new DemoKoCoffee.MovieLibraryViewModel('Awesome Movies'));
+        $(function () {
+            ko.applyBindings(new DemoKoCoffee.MovieLibraryViewModel('Mel Brooks Movies'));
         });
     </script>
 
 }
 
-
+<div id="library-demo">
+    <div class="title">
+        Movie Library: <span class="title" data-bind='text: title'></span> 
+    </div>
     
+    <div class="movies" data-bind="foreach: movies">
+        <div class="movie">
+            <div class="name" data-bind="text: title">
+            </div>
+            <div class="release-date" data-bind="text: releaseDate">
+            </div>
+        </div>
+    </div>
+</div>
+
+
