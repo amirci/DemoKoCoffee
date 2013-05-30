@@ -18,11 +18,40 @@
     
   }
   
+  .new-movie {
+    vertical-align: middle;
+    line-height: 40px;
+    margin: 9px 0;
+    
+    .label {
+      display: inline-block;
+      font-size: 1.2em;
+      margin-right: 10px;
+      padding: 5px;    
+    }
+    
+    input {
+      margin-right: 20px;
+    }
+    
+    i {
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 2em;
+    }
+  }
+  
   .your-movies {
     @extend h2;
     .count {
       display: inline-block;
       margin: 0 10px;
+    }
+    
+    button {
+      @extend .btn;
+      @extend .btn-primary;
+      margin-left: 150px;
     }
   }
   

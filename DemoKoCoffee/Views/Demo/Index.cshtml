@@ -27,12 +27,22 @@
         </div>
     </div>
     
-    <div class="your-movies">
+    <div class="your-movies" data-bind='visible: !newMovieVM.active()'>
         So far you have 
-        <div class="count" data-bind='text: count'></div>
+        <span class="count" data-bind='text: count'></span>
         movies
+        <button data-bind='click: newMovie'> Add more </button>
     </div>
 
+    <div class="new-movie" data-bind='visible: newMovieVM.active(), with: newMovieVM'>
+        <div class="label">Title:</div> 
+        <input type='text' data-bind='value: title' />
+        <div class="label">Release Date:</div> 
+        <input type='text' data-bind='value: relDate' />
+        <i class="icon-ok-sign" data-bind='click: save'></i>
+        <i class="icon-ban-circle" data-bind='click: cancel'></i>
+    </div>
+ 
     <div class="movies" data-bind="foreach: movies">
         <div class="movie">
             <div class="name" data-bind="text: title"></div>
