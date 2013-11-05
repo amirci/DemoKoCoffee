@@ -13,16 +13,43 @@
 
       this.newMovie = __bind(this.newMovie, this);
 
+      this.loadMovies = __bind(this.loadMovies, this);
+
       var _this = this;
       this.title = ko.observable(title);
-      this.movies = ko.observableArray([new Movie('Blazing Saddles', new Date(1972, 1, 3)), new Movie('Young Frankenstain', new Date(1972, 1, 5)), new Movie('Spaceballs', new Date(1980, 1, 3))]);
+      this.movies = ko.observableArray();
       this.editingTitle = ko.observable(false);
       this.newTitle = ko.observable();
       this.count = ko.computed(function() {
         return _this.movies().length;
       });
       this.newMovieVM = new NewMovieViewModel(this.movies);
+      this.loadMovies();
     }
+
+    MovieLibraryViewModel.prototype.loadMovies = function() {
+      var _this = this;
+      return $.ajax({
+        type: 'GET',
+        url: '/movies',
+        success: function(data) {
+          var m;
+          return _this.movies((function() {
+            var _i, _len, _ref, _results;
+            _ref = data.movies;
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              m = _ref[_i];
+              _results.push(new Movie(m));
+            }
+            return _results;
+          })());
+        },
+        error: function() {
+          return console.log("Error calling /movies!");
+        }
+      });
+    };
 
     MovieLibraryViewModel.prototype.newMovie = function() {
       return this.newMovieVM.active(true);
@@ -70,7 +97,10 @@
 
     NewMovieViewModel.prototype.save = function() {
       this.active(false);
-      return this.movies.push(new Movie(this.title, new Date(this.relDate)));
+      return this.movies.push(new Movie({
+        title: this.title,
+        releaseDate: new Date(this.relDate)
+      }));
     };
 
     NewMovieViewModel.prototype.cancel = function() {
@@ -83,10 +113,12 @@
 
   Movie = (function() {
 
-    function Movie(title, relDate) {
-      this.title = title != null ? title : '';
-      this.relDate = relDate != null ? relDate : null;
-      this.releaseDate = $.format.date(this.relDate, 'MMM dd yyyy');
+    function Movie(json) {
+      var _this = this;
+      ko.mapping.fromJS(json, {}, this);
+      this.releaseDate = ko.computed(function() {
+        return $.format.date(new Date(_this.releaseDate()), 'MMM dd yyyy');
+      });
     }
 
     return Movie;
