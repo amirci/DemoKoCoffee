@@ -27,10 +27,14 @@ class DemoKoCoffee.MovieLibraryViewModel
 class NewMovieViewModel
 
   constructor: (@movies) ->
-    @active = ko.observable(false)
+    @active = ko.observable false
     @title = ''
     @relDate = ''
+    @active.subscribe @activate
     
+  activate: (active) => 
+    @relDate = @title = '' if active
+
   save: =>
     @active(false)
     @movies.push new Movie(@title, new Date @relDate)

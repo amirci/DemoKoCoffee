@@ -1,15 +1,19 @@
-(function() {
+﻿(function() {
   var Movie, NewMovieViewModel,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   DemoKoCoffee.MovieLibraryViewModel = (function() {
+
     function MovieLibraryViewModel(title) {
       this.cancelEditing = __bind(this.cancelEditing, this);
-      this.saveEditing = __bind(this.saveEditing, this);
-      this.editTitle = __bind(this.editTitle, this);
-      this.newMovie = __bind(this.newMovie, this);
-      var _this = this;
 
+      this.saveEditing = __bind(this.saveEditing, this);
+
+      this.editTitle = __bind(this.editTitle, this);
+
+      this.newMovie = __bind(this.newMovie, this);
+
+      var _this = this;
       this.title = ko.observable(title);
       this.movies = ko.observableArray([new Movie('Blazing Saddles', new Date(1972, 1, 3)), new Movie('Young Frankenstain', new Date(1972, 1, 5)), new Movie('Spaceballs', new Date(1980, 1, 3))]);
       this.editingTitle = ko.observable(false);
@@ -43,14 +47,26 @@
   })();
 
   NewMovieViewModel = (function() {
+
     function NewMovieViewModel(movies) {
       this.movies = movies;
       this.cancel = __bind(this.cancel, this);
+
       this.save = __bind(this.save, this);
+
+      this.activate = __bind(this.activate, this);
+
       this.active = ko.observable(false);
       this.title = '';
       this.relDate = '';
+      this.active.subscribe(this.activate);
     }
+
+    NewMovieViewModel.prototype.activate = function(active) {
+      if (active) {
+        return this.relDate = this.title = '';
+      }
+    };
 
     NewMovieViewModel.prototype.save = function() {
       this.active(false);
@@ -66,6 +82,7 @@
   })();
 
   Movie = (function() {
+
     function Movie(title, relDate) {
       this.title = title != null ? title : '';
       this.relDate = relDate != null ? relDate : null;
