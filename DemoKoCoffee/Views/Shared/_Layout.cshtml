@@ -4,37 +4,38 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>MavenThought Inc. Demo Ko & Coffee</title>
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
+        <link href="@Styles.Url("~/content/css")" rel="stylesheet"/>
+        <link href="/content/styles.css" rel="stylesheet"/>
+        @RenderSection("head", false)
+        @Html.Partial("_html5shiv")
     </head>
      
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a href="#" class="brand">Demo Knockout & Coffeescript</a>      
+    <body>
+        <div class="navbar-nav navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <a href="#" class="navbar-brand">Single Web Page App Workshop</a>      
             </div>    
         </div>
-    </div>
 
-    <div class='container-fluid'>
-        <div class="row-fluid">
-            <div class="span3">
-                <div class='well'>
-                    <ul class="nav nav-list">
-                        <li class="nav-header">Demos</li>
-                        <li><a href='/demo'>Demo binding</a></li>
-                        <li><a href='/twitter_Demo'>Twitter Demo using CS</a></li>
+        <div class='container'>
+            <div class="row">
+                <div class="col-lg-3">
+                    <ul class="nav list-group">
+                        <li class="list-group-item"><a href='/demo'>Movie Library</a></li>
+                        <li class="list-group-item"><a href='/demo/twitter'>Twitter Feed</a></li>
                     </ul>
-                </div>     
-            </div>   
-            <div class="span9">
-                @RenderBody()
-            </div>
-        </div> 
-    </div>
+                </div>   
+                <div class="col-lg-9">
+                    @RenderBody()
+                </div>
+            </div> 
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/js")
+        <script type="text/javascript" src="/Scripts/knockout-3.0.0.js"></script>
+        <script type="text/javascript" src="/Scripts/ViewModels/DemoKoCoffee.js"></script>
+        <script type="text/javascript" src="/Scripts/ViewModels/MovieLibraryViewModel.js"></script>
+        @RenderSection("scripts", false)
+    </body>
 </html>
+

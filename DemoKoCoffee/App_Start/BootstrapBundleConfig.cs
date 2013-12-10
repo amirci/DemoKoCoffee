@@ -1,6 +1,8 @@
-﻿using System.Web.Optimization;
+﻿using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
 
-namespace DemoKoCoffee
+namespace BootstrapSupport
 {
     public class BootstrapBundleConfig
     {
@@ -12,10 +14,7 @@ namespace DemoKoCoffee
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/jquery.validate.js",
                 "~/scripts/jquery.validate.unobtrusive.js",
-                "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js",
-                "~/Scripts/knockout.2.2.0.js",
-                "~/Scripts/ViewModels/DemoKoCoffee.js",
-                "~/Scripts/ViewModels/MovieLibraryViewModels.js"
+                "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js"
                 ));
 
             bundles.Add(new StyleBundle("~/content/css").Include(
