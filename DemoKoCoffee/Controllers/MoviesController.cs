@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -12,9 +13,16 @@ namespace DemoKoCoffee.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create(string title, string releaseDate)
         {
-            var movie = new Movie {Title = title, ReleaseDate = releaseDate};
+            var repo = Repository();
+                
+            var movie = new Movie
+            {
+                Id = ObjectId.GenerateNewId(),
+                Title = title, 
+                ReleaseDate = releaseDate
+            };
 
-            Repository().Save(movie);
+            repo.Save(movie);
 
             var result =
               JsonConvert.SerializeObject(
@@ -49,7 +57,7 @@ namespace DemoKoCoffee.Controllers
             return this.Content(result, "application/json");
         }
 
-        private MongoCollection<Movie> Repository()
+        private static MongoCollection<Movie> Repository()
         {
             var server = new MongoClient().GetServer();
             var library = server.GetDatabase("MovieLibrary");
@@ -60,9 +68,9 @@ namespace DemoKoCoffee.Controllers
         {
             var movies = new[]
             {
-                new Movie {Id = 1, Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
-                new Movie {Id = 2, Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
-                new Movie {Id = 3, Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
             };
 
             movies.ForEach(m => repository.Save(m));
@@ -73,6 +81,6 @@ namespace DemoKoCoffee.Controllers
     {
         public string Title { get; set; }
         public string ReleaseDate { get; set; }
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
     }
 }

@@ -43,8 +43,7 @@ class NewMovieViewModel
       movie:
         title: @title
         releaseDate: @relDate
-      success: (m) =>
-        @movies.push m
+      success: (m) => @movies.push m
       error: -> console.log "An error ocurred trying to add the movie"
     
   cancel: => @active false
