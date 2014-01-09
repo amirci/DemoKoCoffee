@@ -8,15 +8,29 @@ namespace DemoKoCoffee.Controllers
 {
     public class MoviesController : Controller
     {
+        // POST: /Movies
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create(string title, string releaseDate)
+        {
+            var movie = new Movie {Title = title, ReleaseDate = releaseDate};
+
+            Repository().Save(movie);
+
+            var result =
+              JsonConvert.SerializeObject(
+                new { movie },
+                Formatting.Indented,
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }
+              );
+
+            return this.Content(result, "application/json");
+        }
+
         //
         // GET: /Movies/
         public ActionResult Index()
         {
-            const string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var server = client.GetServer();
-            var library = server.GetDatabase("MovieLibrary");
-            var repository = library.GetCollection<Movie>("movies");
+            var repository = Repository();
 
             if (repository.Count() == 0)
             {
@@ -33,6 +47,13 @@ namespace DemoKoCoffee.Controllers
               );
 
             return this.Content(result, "application/json");
+        }
+
+        private MongoCollection<Movie> Repository()
+        {
+            var server = new MongoClient().GetServer();
+            var library = server.GetDatabase("MovieLibrary");
+            return library.GetCollection<Movie>("movies");
         }
 
         private static void PopulateDefaultMovies(MongoCollection<Movie> repository)
