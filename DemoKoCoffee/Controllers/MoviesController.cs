@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -8,15 +9,36 @@ namespace DemoKoCoffee.Controllers
 {
     public class MoviesController : Controller
     {
+        // POST: /Movies
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create(string title, string releaseDate)
+        {
+            var repo = Repository();
+                
+            var movie = new Movie
+            {
+                Id = ObjectId.GenerateNewId(),
+                Title = title, 
+                ReleaseDate = releaseDate
+            };
+
+            repo.Save(movie);
+
+            var result =
+              JsonConvert.SerializeObject(
+                new { movie },
+                Formatting.Indented,
+                new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }
+              );
+
+            return this.Content(result, "application/json");
+        }
+
         //
         // GET: /Movies/
         public ActionResult Index()
         {
-            const string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var server = client.GetServer();
-            var library = server.GetDatabase("MovieLibrary");
-            var repository = library.GetCollection<Movie>("movies");
+            var repository = Repository();
 
             if (repository.Count() == 0)
             {
@@ -35,13 +57,20 @@ namespace DemoKoCoffee.Controllers
             return this.Content(result, "application/json");
         }
 
+        private static MongoCollection<Movie> Repository()
+        {
+            var server = new MongoClient().GetServer();
+            var library = server.GetDatabase("MovieLibrary");
+            return library.GetCollection<Movie>("movies");
+        }
+
         private static void PopulateDefaultMovies(MongoCollection<Movie> repository)
         {
             var movies = new[]
             {
-                new Movie {Id = 1, Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
-                new Movie {Id = 2, Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
-                new Movie {Id = 3, Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
+                new Movie {Id = ObjectId.GenerateNewId(), Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
             };
 
             movies.ForEach(m => repository.Save(m));
@@ -52,6 +81,6 @@ namespace DemoKoCoffee.Controllers
     {
         public string Title { get; set; }
         public string ReleaseDate { get; set; }
-        public int Id { get; set; }
+        public ObjectId Id { get; set; }
     }
 }

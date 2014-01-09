@@ -81,11 +81,20 @@
     };
 
     NewMovieViewModel.prototype.save = function() {
+      var _this = this;
       this.active(false);
-      return this.movies.push(new DemoKoCoffee.Movie({
-        title: this.title,
-        releaseDate: new Date(this.relDate)
-      }));
+      return DemoKoCoffee.Movie.create({
+        movie: {
+          title: this.title,
+          releaseDate: this.relDate
+        },
+        success: function(m) {
+          return _this.movies.push(m);
+        },
+        error: function() {
+          return console.log("An error ocurred trying to add the movie");
+        }
+      });
     };
 
     NewMovieViewModel.prototype.cancel = function() {

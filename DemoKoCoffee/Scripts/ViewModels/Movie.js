@@ -32,6 +32,19 @@
       });
     };
 
+    Movie.create = function(options) {
+      var _this = this;
+      return $.ajax({
+        type: 'POST',
+        data: options.movie,
+        url: '/movies/create',
+        success: function(data) {
+          return options.success(new Movie(data.movie));
+        },
+        error: options.error
+      });
+    };
+
     return Movie;
 
   })();

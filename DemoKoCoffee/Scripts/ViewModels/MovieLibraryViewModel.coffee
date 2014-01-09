@@ -38,10 +38,13 @@ class NewMovieViewModel
     @relDate = @title = '' if active
 
   save: =>
-    @active(false)
-    @movies.push new DemoKoCoffee.Movie
-      title: @title
-      releaseDate: new Date @relDate
+    @active false
+    DemoKoCoffee.Movie.create
+      movie:
+        title: @title
+        releaseDate: @relDate
+      success: (m) => @movies.push m
+      error: -> console.log "An error ocurred trying to add the movie"
     
-  cancel: => @active(false)
+  cancel: => @active false
     
