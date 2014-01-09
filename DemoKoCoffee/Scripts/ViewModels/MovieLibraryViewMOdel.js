@@ -1,5 +1,5 @@
-﻿(function() {
-  var Movie, NewMovieViewModel,
+(function() {
+  var NewMovieViewModel,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   DemoKoCoffee.MovieLibraryViewModel = (function() {
@@ -28,25 +28,10 @@
     }
 
     MovieLibraryViewModel.prototype.loadMovies = function() {
-      var _this = this;
-      return $.ajax({
-        type: 'GET',
-        url: '/movies',
-        success: function(data) {
-          var m;
-          return _this.movies((function() {
-            var _i, _len, _ref, _results;
-            _ref = data.movies;
-            _results = [];
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              m = _ref[_i];
-              _results.push(new Movie(m));
-            }
-            return _results;
-          })());
-        },
+      return DemoKoCoffee.Movie.all({
+        success: this.movies,
         error: function() {
-          return console.log("Error calling /movies!");
+          return console.log("Error loading movies!");
         }
       });
     };
@@ -97,7 +82,7 @@
 
     NewMovieViewModel.prototype.save = function() {
       this.active(false);
-      return this.movies.push(new Movie({
+      return this.movies.push(new DemoKoCoffee.Movie({
         title: this.title,
         releaseDate: new Date(this.relDate)
       }));
@@ -108,20 +93,6 @@
     };
 
     return NewMovieViewModel;
-
-  })();
-
-  Movie = (function() {
-
-    function Movie(json) {
-      var _this = this;
-      ko.mapping.fromJS(json, {}, this);
-      this.releaseDate = ko.computed(function() {
-        return $.format.date(new Date(_this.releaseDate()), 'MMM dd yyyy');
-      });
-    }
-
-    return Movie;
 
   })();
 
