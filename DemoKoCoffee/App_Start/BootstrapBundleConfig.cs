@@ -11,6 +11,7 @@ namespace DemoKoCoffee
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/knockout.2.2.0.js",
                 "~/Scripts/ViewModels/DemoKoCoffee.js",
+                "~/Scripts/ViewModels/Movie.js",
                 "~/Scripts/ViewModels/MovieLibraryViewModels.js"
                 ));
 
