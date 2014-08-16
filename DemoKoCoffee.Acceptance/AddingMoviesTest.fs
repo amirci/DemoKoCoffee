@@ -6,25 +6,30 @@ open runner
 open System
 
 [<TestFixture>]
-type TestClass() = 
+type ``Adding movies to the list``() = 
 
     [<SetUp>]
     member this.beforeTest() =
-        // start an instance of the firefox browser
-        start firefox
+        // start an instance of the browser
+        canopy.configuration.phantomJSDir <- @".\"
+        start phantomJS
 
     [<TearDown>]
     member this.afterTest() =
         quit()
 
     [<Test>]
-    member this.When2IsAddedTo2Expect4() = 
-        Assert.AreEqual(4, 2+2)
+    member this.``When there are movies loaded``() = 
+        // Given I have some movies
+
+        // When I see the list of movies
+        url "http://localhost:1419/"
+
+        // Then all the movies should be listed
 
 
     [<Test>]
-    member this.WhenCheckingGithub() = 
-        // go to url
+    member this.CheckingCanopy() = 
         url "http://lefthandedgoat.github.io/canopy/testpages/"
 
         //assert that the element with an id of 'welcome' has
