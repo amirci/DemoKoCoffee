@@ -60,14 +60,7 @@ namespace DemoKoCoffee.Controllers
 
         private static void PopulateDefaultMovies(MovieRepository repository)
         {
-            var movies = new[]
-            {
-                new Movie {Id = ObjectId.GenerateNewId(), Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
-                new Movie {Id = ObjectId.GenerateNewId(), Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
-                new Movie {Id = ObjectId.GenerateNewId(), Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
-            };
-
-            movies.ForEach(repository.Save);
+            MovieRepository.DefaultMovies.ForEach(repository.Save);
         }
     }
 
