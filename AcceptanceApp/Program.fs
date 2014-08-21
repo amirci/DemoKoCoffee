@@ -55,6 +55,7 @@ before(clearMovies >> openMainPage >> addNewMovie >> saveNewMovie)
 "the new movie is listed" &&& fun _ ->
     let expected = Seq.append defaultMovies ["High Anxiety"]
     actualMovies() |> should equal expected
+    notDisplayed ".new-movie"
 
 
 context "When adding a movie to the list and is canceled"
@@ -62,7 +63,7 @@ let cancelOperation = fun _ -> click ".icon-ban-circle"
 before(clearMovies >> openMainPage >> addNewMovie >> cancelOperation)
 "the new movie is not listed" &&& fun _ ->
     actualMovies() |> should equal defaultMovies
-
+    notDisplayed ".new-movie"
 
 //run all tests
 run()
