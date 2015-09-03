@@ -7,6 +7,7 @@ open Fake
 RestorePackages()
 
 #load "./config.fsx"
+#load "./test.fsx"
 
 open Config
 
@@ -26,6 +27,7 @@ environments |> Seq.iter (fun env ->
         run (targetWithEnv prjName env)
     )
 )
+
 
 
 // start build

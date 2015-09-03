@@ -12,7 +12,7 @@ start phantomJS
 let elementText = fun (e: OpenQA.Selenium.IWebElement) -> e.Text
 
 let openMainPage = fun _ ->
-    url "http://localhost:1419/"
+    url "http://localhost:9099/"
     click "Demo binding"
 
 let repo = MovieRepository()

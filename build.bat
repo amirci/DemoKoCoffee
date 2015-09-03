@@ -6,5 +6,11 @@ if exist .\packages\FAKE\tools\Fake.exe (
 	"nuget" "Install" "FAKE" "-OutputDirectory" "packages" "-ExcludeVersion"
 )
 
+if exist .\packages\FAKE.IIS (
+	rem Fake/IIS already installed
+) else (
+	"nuget" "Install" "FAKE.IIS" "-OutputDirectory" "packages" "-ExcludeVersion"
+)
+
 
 "packages\FAKE\tools\Fake.exe" "BuildTools/build.fsx" %*
