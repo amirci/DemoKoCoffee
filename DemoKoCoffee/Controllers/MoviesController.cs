@@ -60,7 +60,9 @@ namespace DemoKoCoffee.Controllers
 
         private static void PopulateDefaultMovies(MovieRepository repository)
         {
-            MovieRepository.DefaultMovies.ForEach(repository.Save);
+            MovieRepository
+                .DefaultMovies
+                .ForEach(m => repository.Save(m));
         }
     }
 

@@ -9,14 +9,14 @@ open DemoKoCoffee.Model
 module ``Movie list tests`` =
 
     [<SetUp>]
-    let beforeTest =
+    let beforeTest() =
         // start an instance of the browser
         canopy.configuration.phantomJSDir <- @".\"
         start phantomJS
         // start firefox
         
     [<TearDown>]
-    let afterTest = quit()
+    let afterTest = quit
 
     let clearMovies = MovieRepository().Clear
 

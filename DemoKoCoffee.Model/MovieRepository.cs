@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -6,7 +7,7 @@ namespace DemoKoCoffee.Model
 {
     public class MovieRepository
     {
-        private readonly MongoCollection<Movie> _movieCollection;
+        private readonly IMongoCollection<Movie> _movieCollection;
 
         public static IEnumerable<Movie> DefaultMovies = new [] 
         {
@@ -17,29 +18,20 @@ namespace DemoKoCoffee.Model
 
         public MovieRepository()
         {
-            var server = new MongoClient().GetServer();
+            var server = new MongoClient();
             var library = server.GetDatabase("MovieLibrary");
-            this._movieCollection = library.GetCollection<Movie>("movies");
+            _movieCollection = library.GetCollection<Movie>("movies");
         }
 
-        public void Clear()
+        async public void Clear()
         {
-            this._movieCollection.RemoveAll();
+            await this._movieCollection.DeleteManyAsync(m => true);
         }
 
-        public bool IsEmpty
-        {
-            get { return this._movieCollection.Count() == 0; }
-        }
+        public bool IsEmpty => this._movieCollection.CountAsync(m => true).Result > 0;
 
-        public IEnumerable<Movie> All()
-        {
-            return _movieCollection.FindAll();
-        }
+        public Task<IAsyncCursor<Movie>> All() => this._movieCollection.FindAsync(m => true);
 
-        public void Save(Movie movie)
-        {
-            this._movieCollection.Save(movie);
-        }
+        public Task Save(Movie movie) => this._movieCollection.InsertOneAsync(movie);
     }
 }

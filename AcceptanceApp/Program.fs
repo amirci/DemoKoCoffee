@@ -34,7 +34,7 @@ context "When the database has movies stored"
 let storeNewMovies = fun _ ->
     let makeMovie t rd = Movie(Title=t, ReleaseDate=rd)
     let stored = [(makeMovie "Jaws" "Jan 1, 1990") ; (makeMovie "Aliens" "Jan 1, 2003")]
-    stored |> Seq.iter(repo.Save)
+    stored |> Seq.iter(repo.Save >> ignore)
 
 before(clearMovies >> storeNewMovies >> openMainPage)
 
