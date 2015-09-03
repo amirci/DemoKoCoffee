@@ -25,10 +25,10 @@ namespace DemoKoCoffee.Model
 
         async public void Clear()
         {
-            await this._movieCollection.DeleteManyAsync(m => true);
+            await _movieCollection.DeleteManyAsync(m => true);
         }
 
-        public bool IsEmpty => this._movieCollection.CountAsync(m => true).Result > 0;
+        public bool IsEmpty => _movieCollection.CountAsync(m => true).Result > 0;
 
         public Task<IAsyncCursor<Movie>> All() => this._movieCollection.FindAsync(m => true);
 
