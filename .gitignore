@@ -9,6 +9,7 @@
 *.dll.config
 *.cache
 *.suo
+TestResult.xml
 
 Backup/
 UpgradeLog.htm

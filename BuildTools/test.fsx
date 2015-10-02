@@ -9,6 +9,15 @@ open Fake.IISExpress
 open Config
 open System.Configuration
 
+Target "Test" (fun _ ->
+  !! "**/bin/Debug/*Tests.dll"
+  |> NUnit (fun p ->
+    {p with
+      DisableShadowCopy = true;
+    }
+  )
+)
+
 Target "Canopy" (fun _ ->
     let hostName = "localhost"
     let port = 9099
@@ -29,3 +38,5 @@ Target "Canopy" (fun _ ->
 
     if result <> 0 then failwith "Failed result from canopy tests"
 )
+
+

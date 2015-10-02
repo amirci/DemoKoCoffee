@@ -62,7 +62,7 @@ namespace DemoKoCoffee.Controllers
         {
             MovieRepository
                 .DefaultMovies
-                .ForEach(m => repository.Save(m));
+                .ForEach(repository.Save);
         }
     }
 

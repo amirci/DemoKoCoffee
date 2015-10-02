@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -23,15 +24,21 @@ namespace DemoKoCoffee.Model
             _movieCollection = library.GetCollection<Movie>("movies");
         }
 
-        async public void Clear()
+        public void Clear()
         {
-            await _movieCollection.DeleteManyAsync(m => true);
+            _movieCollection.DeleteManyAsync(m => true).Wait();
         }
 
         public bool IsEmpty => _movieCollection.CountAsync(m => true).Result > 0;
 
-        public Task<IAsyncCursor<Movie>> All() => this._movieCollection.FindAsync(m => true);
+        public IEnumerable<Movie> All()
+        {
+            return this._movieCollection.Find(m => true).ToListAsync().Result.ToList();
+        }
 
-        public Task Save(Movie movie) => this._movieCollection.InsertOneAsync(movie);
+        public void Save(Movie movie)
+        {
+            this._movieCollection.InsertOneAsync(movie).Wait();
+        } 
     }
 }

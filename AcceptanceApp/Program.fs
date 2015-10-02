@@ -4,10 +4,11 @@ open System
 open NUnit.Framework
 open FsUnit
 open DemoKoCoffee.Model
+open FSharpx
 
 canopy.configuration.phantomJSDir <- @".\"
-start phantomJS
-// start firefox
+//start phantomJS
+start firefox
 
 let elementText = fun (e: OpenQA.Selenium.IWebElement) -> e.Text
 
@@ -19,28 +20,36 @@ let repo = MovieRepository()
 
 let clearMovies = repo.Clear
 
-let actualMovies = fun _ -> (elements ".movie .name") |> Seq.map(elementText)
+let actualMovies () =
+  someElement ".movie .name"
+  |> Option.map (fun _ -> elements ".movie .name" |> List.map elementText) 
+  |> Option.getOrElse List.empty
 
-let defaultMovies = MovieRepository.DefaultMovies |> Seq.map(fun m -> m.Title)
+let defaultMovies = 
+    MovieRepository.DefaultMovies 
+    |> Seq.map (fun m -> m.Title)
+    |> List.ofSeq
 
 context "When the database is empty"
-before(clearMovies >> openMainPage)
+before (clearMovies >> openMainPage)
 
-"the default movies are listed" &&& fun _ ->
-    actualMovies() |> should equal defaultMovies
+"No movies are listed" &&& fun _ ->
+    actualMovies() 
+    |> should equal List.empty
 
 
 context "When the database has movies stored"
 let storeNewMovies = fun _ ->
-    let makeMovie t rd = Movie(Title=t, ReleaseDate=rd)
-    let stored = [(makeMovie "Jaws" "Jan 1, 1990") ; (makeMovie "Aliens" "Jan 1, 2003")]
-    stored |> Seq.iter(repo.Save >> ignore)
+//    let makeMovie t rd = Movie(Title=t, ReleaseDate=rd)
+//    let stored = [(makeMovie "Jaws" "Jan 1, 1990") ; (makeMovie "Aliens" "Jan 1, 2003")]
+    MovieRepository.DefaultMovies 
+    |> Seq.iter repo.Save
 
-before(clearMovies >> storeNewMovies >> openMainPage)
+before (clearMovies >> storeNewMovies >> openMainPage)
 
-"all the new movies are listed" &&& fun _ ->
-    let expected = ["Jaws"; "Aliens"]
-    actualMovies() |> should equal expected
+"all stored movies are listed" &&&& fun _ ->
+    actualMovies()
+    |> should equal defaultMovies
 
 
 context "When adding a movie to the list and is saved"

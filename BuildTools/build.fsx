@@ -11,24 +11,25 @@ RestorePackages()
 
 open Config
 
-Target "Help" PrintTargets
+Target "Help" (fun _ ->
+    PrintTargets()
+    printf "\nDefault Build:Debug\n\n"
+)
 
 let addBuildTarget name env sln =
-    let rebuild config = {(setParams config) with Targets = ["Rebuild"]}
+    let rebuild config = {(setParams config) with Targets = ["Build"]}
     Target (targetWithEnv name env) (fun _ ->
         setBuildMode env
         build rebuild sln
     )
 
 environments |> Seq.iter (fun env -> 
-    addBuildTarget prjName env mainSln
-
-    Target  (targetWithEnv "All" env) (fun _ ->
-        run (targetWithEnv prjName env)
-    )
+    addBuildTarget "Build" env mainSln
 )
 
 
+"Build:Debug"
+  ==> "Canopy"
 
 // start build
-RunTargetOrDefault "All:Debug"
+RunTargetOrDefault (targetWithEnv "Build" "Debug")
