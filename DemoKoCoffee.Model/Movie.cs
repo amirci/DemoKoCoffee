@@ -6,6 +6,6 @@ namespace DemoKoCoffee.Model
     {
         public string Title       { get; set; }
         public string ReleaseDate { get; set; }
-        public ObjectId Id { get; set; } 
+        public ObjectId Id { get; set; }
     }
 }

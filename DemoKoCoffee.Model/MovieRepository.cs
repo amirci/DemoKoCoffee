@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -12,15 +11,15 @@ namespace DemoKoCoffee.Model
 
         public static IEnumerable<Movie> DefaultMovies = new [] 
         {
-            new Movie {Id = ObjectId.GenerateNewId(), Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
-            new Movie {Id = ObjectId.GenerateNewId(), Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
-            new Movie {Id = ObjectId.GenerateNewId(), Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
+            new Movie {Title = "Blazing Saddles", ReleaseDate = "Mar 1, 1972"},
+            new Movie {Title = "Young Frankenstain", ReleaseDate = "Jan 1, 1972"},
+            new Movie {Title = "Spaceballs", ReleaseDate = "Mar 3, 1980"}
         };
 
-        public MovieRepository()
+        public MovieRepository(string database="MovieLibrary")
         {
             var server = new MongoClient();
-            var library = server.GetDatabase("MovieLibrary");
+            var library = server.GetDatabase(database);
             _movieCollection = library.GetCollection<Movie>("movies");
         }
 
@@ -29,7 +28,9 @@ namespace DemoKoCoffee.Model
             _movieCollection.DeleteManyAsync(m => true).Wait();
         }
 
-        public bool IsEmpty => _movieCollection.CountAsync(m => true).Result > 0;
+        public bool IsEmpty => this.Count == 0;
+
+        public long Count => _movieCollection.CountAsync(m => true).Result;
 
         public IEnumerable<Movie> All()
         {
