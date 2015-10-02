@@ -12,6 +12,17 @@ let ``Before each test`` () =
     repo.Clear()    
 
 [<Test>]
+let ``Clear removes all the movies`` () =
+    MovieRepository.DefaultMovies
+    |> Seq.iter repo.Save
+
+    repo.Count |> should equal (MovieRepository.DefaultMovies |> Seq.length)
+
+    repo.Clear()
+
+    repo.IsEmpty |> should equal true
+
+[<Test>]
 let ``Save adds movies to the library`` () =
     let stored = [
         makeMovie "Aliens" "Jan 1, 2003"
@@ -26,5 +37,5 @@ let ``Save adds movies to the library`` () =
 
 
 [<Test>]
-let ``The repo is empty`` () =
+let ``IsEmpty checks the repo is empty`` () =
     repo.IsEmpty |> should equal true

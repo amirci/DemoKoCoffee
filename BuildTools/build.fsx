@@ -31,5 +31,8 @@ environments |> Seq.iter (fun env ->
 "Build:Debug"
   ==> "Canopy"
 
+"Build:Debug"
+  ==> "Test"
+
 // start build
 RunTargetOrDefault (targetWithEnv "Build" "Debug")
