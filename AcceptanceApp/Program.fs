@@ -7,8 +7,8 @@ open DemoKoCoffee.Model
 open FSharpx
 
 canopy.configuration.phantomJSDir <- @".\"
-//start phantomJS
-start firefox
+start phantomJS
+//start firefox
 
 let elementText = fun (e: OpenQA.Selenium.IWebElement) -> e.Text
 
@@ -77,7 +77,7 @@ before(clearMovies >> openMainPage >> addNewMovie >> cancelOperation)
 //run all tests
 run()
 
-printfn "press [enter] to exit"
-System.Console.ReadLine() |> ignore
+//printfn "press [enter] to exit"
+//System.Console.ReadLine() |> ignore
 
 quit()
